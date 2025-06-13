@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NestTrim | Pruning & Shaping Specialists</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<style>
+  /* Reset and base styles */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4b5741; /* dark muted greenish */
+    background-color: #f9f6f0; /* cream background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    color: #5a7c52; /* calm green */
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+  a:hover, a:focus {
+    color: #3b5830;
+    outline: none;
+  }
+  h1, h2, h3, h4 {
+    font-weight: 700;
+    margin-top: 0;
+    line-height: 1.2;
+    color: #2e3a1f;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+  }
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.6rem;
+  }
+  p {
+    margin-bottom: 1.2rem;
+    color: #5f6c45;
+  }
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    flex-grow: 1;
+  }
+
+  /* Header */
+  header {
+    background-color: #e5f1d9; /* calm light green */
+    padding: 0.75rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.07);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: #2e3a1f;
+    letter-spacing: 2px;
+  }
+  nav {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.8rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+  }
+  .nav-links a:hover, .nav-links a:focus {
+    background-color: #c5d3a7;
+    color: #2e3a1f;
+  }
+  /* Mobile menu toggle */
+  .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #2e3a1f;
+    font-size: 2rem;
+    display: block;
+  }
+
+  /* Responsive navigation */
+  @media (min-width: 768px) {
+    nav {
+      display: block;
+    }
+    .menu-toggle {
+      display: none;
+    }
+  }
+
+  /* Mobile menu overlay */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #e5f1d9cc;
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1200;
+    padding: 2rem;
+  }
+  .mobile-nav.show {
+    display: flex;
+  }
+  .mobile-nav a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2e3a1f;
+  }
+  .mobile-nav a:hover, .mobile-nav a:focus {
+    color: #3b5830;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, #d6e8b8, #a3bf7f);
+    border-radius: 20px;
+    margin-bottom: 4rem;
+    padding: 3rem 1rem 4rem;
+    box-shadow: 0 8px 20px rgba(34, 53, 0, 0.12);
+    overflow: hidden;
+  }
+  .hero h1 {
+    max-width: 700px;
+    margin-bottom: 0.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
+    color: #3b5830;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+    max-width: 600px;
+  }
+  .hero-slogan {
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #486225;
+    margin-bottom: 2rem;
+  }
+  .btn-primary {
+    background-color: #4a6d26;
+    color: #f1efd6;
+    border: none;
+    padding: 0.9rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px 8px rgba(74, 109, 38, 0.54);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn-primary:hover, .btn-primary:focus {
+    background-color: #3b581f;
+    box-shadow: 0 8px 12px rgba(59, 88, 31, 0.7);
+    outline: none;
+  }
+
+  /* Animated Hedge Shaping illustration */
+  .animated-hedge {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    width: 280px;
+    height: 280px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    animation: hedgeShapePulse 5s ease-in-out infinite alternate;
+    user-select: none;
+  }
+  @keyframes hedgeShapePulse {
+    0%, 100% {
+      transform: translateY(-50%) scale(1);
+      filter: brightness(1);
+    }
+    50% {
+      transform: translateY(-50%) scale(1.02);
+      filter: brightness(1.05);
+    }
+  }
+
+  /* Sections style */
+  section {
+    margin-bottom: 4rem;
+  }
+  section h2 {
+    border-bottom: 3px solid #a7b774;
+    padding-bottom: 0.5rem;
+    max-width: max-content;
+  }
+  section p {
+    max-width: 850px;
+  }
+
+  /* Services table styling */
+  table.services-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 24px;
+    margin-top: 1rem;
+  }
+  table.services-table thead tr {
+    background-color: #d6e8b8;
+    color: #304810;
+  }
+  table.services-table thead tr th {
+    text-align: left;
+    padding: 12px 20px;
+    font-weight: 700;
+    border-bottom: 2px solid #a7b774;
+    font-size: 1.3rem;
+  }
+  table.services-table tbody tr {
+    background: #f4f7df;
+    border-radius: 12px;
+  }
+  table.services-table tbody tr:hover {
+    background-color: #d6e8b8;
+  }
+  table.services-table tbody tr td {
+    vertical-align: top;
+    padding: 16px 20px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(74, 109, 38, 0.15);
+    border-radius: 12px;
+  }
+  table.services-table tbody tr td.image-cell {
+    width: 40%;
+    padding: 0;
+  }
+  table.services-table tbody tr td.image-cell img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px 0 0 12px;
+    object-fit: cover;
+  }
+  table.services-table tbody tr td.description-cell {
+    width: 60%;
+    padding-left: 24px;
+    color: #465a2f;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  /* Responsive for table */
+  @media (max-width: 900px) {
+    table.services-table tbody tr {
+      display: flex;
+      flex-direction: column;
+      background: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      margin-bottom: 3rem;
+    }
+    table.services-table tbody tr td {
+      border-radius: 8px !important;
+      box-shadow: 0 4px 8px rgba(74, 109, 38, 0.12);
+      margin-bottom: 16px;
+      padding-left: 0 !important;
+      width: 100% !important;
+    }
+    table.services-table tbody tr td.image-cell img {
+      border-radius: 12px 12px 0 0 !important;
+    }
+    table.services-table tbody tr td.description-cell {
+      padding-left: 0 !important;
+    }
+  }
+
+  /* About Us */
+  .about-us p {
+    margin-bottom: 1rem;
+  }
+
+  /* Feedback */
+  .feedback-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
+  }
+  .card-feedback {
+    background-color: #e9f1d7;
+    border-radius: 16px;
+    padding: 1.5rem 1.8rem;
+    box-shadow: 0 6px 16px rgba(105,135,40,0.12);
+  }
+  .card-feedback p {
+    font-style: italic;
+    color: #3f5220;
+  }
+  .card-feedback .author {
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #2c3a10;
+  }
+
+  /* Tips Section */
+  .tips-list {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 900px;
+  }
+  .tip-item {
+    background-color: #f1f6dd;
+    padding: 1rem 1.25rem;
+    border-left: 5px solid #768c3b;
+    border-radius: 8px;
+    color: #4f5a23;
+  }
+  .tip-item h4 {
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  .tip-item p {
+    margin-bottom: 0;
+  }
+
+  /* Disclaimer */
+  .disclaimer {
+    font-size: 0.875rem;
+    color: #7a7a7a;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* Footer with contact info and satisfaction statement */
+  footer {
+    background: #c7d5a3;
+    color: #2f3b11;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    border-top: 2px solid #768c3b;
+  }
+  footer .address {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  footer .satisfaction {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: #304810;
+  }
+
+  /* Scrollbar style for sliders */
+  ::-webkit-scrollbar {
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #7b9b46;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #e4f0b5;
+  }
+
+  /* Responsive layout adjustments */
+  @media (min-width: 768px) {
+    .container {
+      padding: 3rem 2rem 5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding: 4rem 3rem 6rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner" role="banner">
+    <div class="logo" aria-label="NestTrim pruning and shaping specialists brand">NestTrim</div>
+    <nav aria-label="Primary navigation">
+      <button class="menu-toggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span class="material-icons">menu</span>
+      </button>
+      <div class="nav-links desktop-nav">
+       <a href="index.html" tabindex="0"aria-current="page">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+      </div>
+    </nav>
+  </div>
+  <nav id="mobileMenu" class="mobile-nav" aria-label="Mobile Navigation">
+ <a href="index.html" tabindex="0"aria-current="page">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+  </nav>
+</header>
+
+<main class="container" role="main" id="main-content">
+  <section class="hero" aria-label="Hero section with slogan and call to action">
+    <h1>Crafted cuts. Healthier growth.</h1>
+    <p class="hero-subtitle">NestTrim - Pruning & Shaping Specialists dedicated to sculpting nature with care and precision.</p>
+    <p class="hero-slogan">Calm green + cream aesthetics meet refined tools and animated hedge shaping.</p>
+    <button class="btn-primary" type="button" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Our Services</button>
+  <section id="services" aria-label="Services offered by NestTrim">
+    <h2>Our Pruning & Shaping Services</h2>
+    <p>At NestTrim, we expertly combine horticultural science and artistic craftsmanship to provide an extensive suite of pruning and shaping services. Our goal is to nurture healthier plants, improve landscape aesthetics, and increase the longevity of your trees and shrubs.</p>
+    <p>We offer a truly personalized experience, tailoring each service to your unique garden environment and desired outcomes. Delve into our detailed service offerings below, each paired with an evocative visual representation of the quality work we provide.</p>
+
+    <table class="services-table" role="table" aria-label="Table listing of NestTrim services with images and detailed descriptions">
+      <thead>
+        <tr>
+          <th scope="col">Visual</th>
+          <th scope="col">Service Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="image-cell">
+            <img src="s1.png" alt="Professional gardener shaping lush green hedge with sharp geometric edges under soft natural light in calming green and cream tones" tabindex="0" />
+          </td>
+          <td class="description-cell">
+            <h3>Hedge Shaping & Sculpting</h3>
+            <p>Elevate your landscape with our expert hedge shaping service. We emphasize precision, creating elegantly sculpted hedges that serve as living art forms enhancing your outdoor living space’s charm and privacy. Our artisans select suitable plant species and prune with a variety of shears—manual and electric—to achieve smooth, dense shapes. Regular maintenance visits ensure your hedges always retain their correct form, promoting vigorous growth and a healthier structure. This service perfectly blends aesthetic appeal and plant vitality.</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="image-cell">
+            <img src="s2.png" alt="Arborist trimming mature oak tree outdoors using refined cutting tools; bright daylight bathing tree leaves in calm green and cream tones" tabindex="0" />
+          </td>
+          <td class="description-cell">
+            <h3>Tree Trimming & Pruning</h3>
+            <p>Our tree trimming services focus on maintaining tree health and safety. We carefully remove dead or damaged branches and thin dense areas to improve airflow and sunlight penetration. Utilizing best arboriculture practices such as the three-cut method for large limbs, we protect the natural form of the tree while mitigating risks of storm damage and pest infestation. We schedule trimming during optimal growth periods to minimize stress and accelerate recovery, ensuring your trees thrive with structural integrity and aesthetic beauty for years to come.</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="image-cell">
+            <img src="s3.png" alt="Close-up of orchard specialist pruning fruit tree branches to promote higher fruit yield, set in a serene garden with green and cream palette" tabindex="0" />
+          </td>
+          <td class="description-cell">
+            <h3>Fruit Tree Care</h3>
+            <p>Maximize your fruit harvest with our expert pruning and care for fruit trees. We scientifically evaluate branch density to reduce overcrowding, enhance sun exposure, and improve nutrient distribution. Our thinning and shaping protocols reduce disease likelihood and elevate fruit size, ripeness, and flavor profiles. We also provide seasonal advice on fertilization, watering, and pest control to ensure your orchard or backyard fruit garden attains peak productivity while maintaining long-term tree health and vigor.</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="image-cell">
+            <img src="s4.png" alt="Gardener performing seasonal light pruning, removing deadwood from shrubs in peaceful garden with soft daytime light and natural green colors" tabindex="0" />
+          </td>
+          <td class="description-cell">
+            <h3>Seasonal Maintenance</h3>
+            <p>Maintain optimal plant health with our seasonal pruning and care packages. Timed to coincide with natural growth cycles, we remove dead or damaged wood, perform light trimmings, and execute shaping corrections. This cyclical maintenance reduces stress on your plants and prepares them for flourishing growth or dormancy. Tailored per plant species, our protocols promote resilience, reduce disease risks, and enhance your garden’s appearance throughout changing seasons, ensuring year-round vitality.</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="image-cell">
+            <img src="s5.png" alt="Artisan carefully sculpting a formal topiary bush into a spiral shape using shear scissors; garden scene with calm green and cream tones" tabindex="0" />
+          </td>
+          <td class="description-cell">
+            <h3>Specialty Topiary Art</h3>
+            <p>Immerse yourself in the creative side of gardening with our specialty topiary sculpting. We craft living sculptures, ranging from classic geometric forms to intricate animal shapes and fanciful spirals. Utilizing precision tools and artistic expertise, we bring your landscape visions to life while ensuring plant health remains paramount. We offer design consultation and regular upkeep, protecting your topiary masterpieces so they remain lush, striking, and healthy season after season.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="about" aria-label="About NestTrim company and team">
+    <h2>About NestTrim</h2>
+    <p>NestTrim was founded on the belief that nature’s beauty can be enhanced with careful craftsmanship. Our team brings years of experience in arboriculture and garden design to each project.</p>
+    <p>We employ environmentally responsible pruning practices, prioritizing plant health and longevity. Using refined, professional-grade tools and innovative techniques, we bring artistic vision to every hedge and tree we shape.</p>
+    <p>Our customer-first approach means transparency, clear communication, and consistent satisfaction on every job, large or small.</p>
+    <img src="p1.png" alt="NestTrim professional pruning team at work shaping garden hedges in green uniforms" style="width:100%; border-radius:16px; box-shadow:0 4px 12px rgba(0,0,0,0.1); margin-top:1rem;" />
+  </section>
+
+  <section id="feedback" aria-label="Customer feedback and testimonials">
+    <h2>Customer Feedback</h2>
+    <div class="feedback-cards">
+      <article class="card-feedback" tabindex="0" aria-label="Customer testimonial from Joan M.">
+        <p>"NestTrim transformed my garden hedges into elegant shapes. Their professionalism and attention to detail are unmatched. Highly recommend their services!"</p>
+        <p class="author">- Joan M.</p>
+      </article>
+      <article class="card-feedback" tabindex="0" aria-label="Customer testimonial from David L.">
+        <p>"Excellent tree pruning that improved the health of my old fruit trees. The team were courteous and clean, and the results were outstanding."</p>
+        <p class="author">- David L.</p>
+      </article>
+      <article class="card-feedback" tabindex="0" aria-label="Customer testimonial from Sandra T.">
+        <p>"Reliable and skilled hedge shaping specialists. Their calm green and cream themed presentation reflects their calm and precise working method."</p>
+        <p class="author">- Sandra T.</p>
+      </article>
+      <article class="card-feedback" tabindex="0" aria-label="Customer testimonial from Carlos F.">
+        <p>"I appreciate how NestTrim’s advice and ongoing support have helped me maintain a beautiful landscape that stands out in my neighborhood."</p>
+        <p class="author">- Carlos F.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="tips" aria-label="Pruning tips and advice">
+    <h2>Pruning & Shaping Tips</h2>
+    <div class="tips-list">
+      <article class="tip-item" tabindex="0">
+        <h4>Tip 1: Timing Matters</h4>
+        <p>Prune most deciduous trees during late winter or early spring when they are still dormant to avoid stress and disease.</p>
+      </article>
+      <article class="tip-item" tabindex="0">
+        <h4>Tip 2: Use the Right Tools</h4>
+        <p>Sharp, clean tools prevent damage and promote faster healing in plants. Regularly sanitize them to reduce disease spread.</p>
+      </article>
+      <article class="tip-item" tabindex="0">
+        <h4>Tip 3: Avoid Over-Pruning</h4>
+        <p>Never remove more than 25% of the foliage at once; it weakens the plant and limits the photosynthesis needed for growth.</p>
+      </article>
+      <article class="tip-item" tabindex="0">
+        <h4>Tip 4: Shape with Growth Habits</h4>
+        <p>Understand each plant’s natural growth direction and shape; shaping should enhance rather than fight the natural form.</p>
+      </article>
+      <article class="tip-item" tabindex="0">
+        <h4>Tip 5: Clean Cuts Heal Faster</h4>
+        <p>Make precise cuts just above a bud or branch node to encourage quick healing and new growth.</p>
+      </article>
+      <article class="tip-item" tabindex="0">
+        <h4>Tip 6: Safety First</h4>
+        <p>Wear protective gear and take precautions when using power tools or climbing. Professional help is recommended for large trees.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="disclaimer" aria-label="Website disclaimer">
+    <h2>Disclaimer</h2>
+    <p class="disclaimer">NestTrim provides professional pruning and shaping advice based on best practices in arboriculture. However, individual results may vary depending on plant species, climate, and maintenance. We recommend consulting a certified arborist for specific tree health issues or complex pruning needs. This website content is for informational purposes only and does not substitute professional landscaping or medical advice for plant diseases.</p>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <p class="address" aria-label="Address">Address: 50 Washington Square S, New York, NY 10012, USA</p>
+  <p class="satisfaction" aria-label="Statement to increase constant customer satisfaction">Committed to increasing constant customer satisfaction with every crafted cut and healthier growth.</p>
+</footer>
+
+<script>
+  // Mobile menu toggle logic
+  const menuToggleBtn = document.querySelector('.menu-toggle');
+  const mobileNav = document.getElementById('mobileMenu');
+
+  menuToggleBtn.addEventListener('click', () => {
+    const isExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
+    menuToggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+    mobileNav.classList.toggle('show');
+  });
+</script>
+</body>
+</html>
+
