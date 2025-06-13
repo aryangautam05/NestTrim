@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NestTrim | Terms and Conditions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<style>
+  /* Reset and base styles */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4b5741; /* dark muted greenish */
+    background-color: #f9f6f0; /* cream background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    color: #5a7c52; /* calm green */
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+  a:hover, a:focus {
+    color: #3b5830;
+    outline: none;
+  }
+  h1, h2, h3, h4 {
+    font-weight: 700;
+    margin-top: 0;
+    line-height: 1.2;
+    color: #2e3a1f;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+  }
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.6rem;
+  }
+  p {
+    margin-bottom: 1.2rem;
+    color: #5f6c45;
+  }
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    flex-grow: 1;
+  }
+  /* Header */
+  header {
+    background-color: #e5f1d9; /* calm light green */
+    padding: 0.75rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.07);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: #2e3a1f;
+    letter-spacing: 2px;
+  }
+  nav {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.8rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+  }
+  .nav-links a:hover, .nav-links a:focus {
+    background-color: #c5d3a7;
+    color: #2e3a1f;
+  }
+  /* Mobile menu toggle */
+  .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #2e3a1f;
+    font-size: 2rem;
+    display: block;
+  }
+  /* Responsive navigation */
+  @media (min-width: 768px) {
+    nav {
+      display: block;
+    }
+    .menu-toggle {
+      display: none;
+    }
+  }
+  /* Mobile menu overlay */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #e5f1d9cc;
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1200;
+    padding: 2rem;
+  }
+  .mobile-nav.show {
+    display: flex;
+  }
+  .mobile-nav a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2e3a1f;
+  }
+  .mobile-nav a:hover, .mobile-nav a:focus {
+    color: #3b5830;
+  }
+  /* Footer */
+  footer {
+    background: #c7d5a3;
+    color: #2f3b11;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    border-top: 2px solid #768c3b;
+  }
+  footer .address {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  footer .satisfaction {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: #304810;
+  }
+  /* Content styling */
+  .terms-section {
+    margin-bottom: 2.5rem;
+  }
+  .terms-section ul {
+    padding-left: 1.5rem;
+    color: #5f6c45;
+  }
+  .terms-section ul li {
+    margin-bottom: 1rem;
+  }
+  @media (min-width: 768px) {
+    .container {
+      padding: 3rem 2rem 5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding: 4rem 3rem 6rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner" role="banner">
+    <div class="logo" aria-label="NestTrim pruning and shaping specialists brand">NestTrim</div>
+    <nav aria-label="Primary navigation">
+      <button class="menu-toggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span class="material-icons">menu</span>
+      </button>
+      <div class="nav-links desktop-nav">
+       <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0"aria-current="page">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+      </div>
+    </nav>
+  </div>
+  <nav id="mobileMenu" class="mobile-nav" aria-label="Mobile Navigation">
+   <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0"aria-current="page">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+  </nav>
+</header>
+
+<main class="container" role="main" id="main-content" tabindex="-1">
+  <h1>Terms and Conditions</h1>
+
+  <section class="terms-section">
+    <p>Welcome to NestTrim. These terms and conditions establish the legally binding terms for your use of our website and services. By accessing or using our site and services, you agree to comply with and be bound by these terms. If you disagree with any part of the terms, please do not access the site or use our services. We reserve the right to update these terms at our discretion to reflect changes in legal requirements or business practices, with updates becoming effective upon posting. We encourage you to periodically review these terms to remain informed of your rights and responsibilities.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>1. Definitions</h2>
+    <p>In these terms, the following definitions apply: "Company" means NestTrim, including all affiliated entities; "User" or "You" means any person accessing our website or utilizing our services; "Services" describe all professional offerings provided by NestTrim including pruning, shaping, consultation, and maintenance; "Content" includes all material available on the website such as text, images, videos, and logos. Understanding these definitions is crucial for interpreting your rights and obligations under these terms.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>2. Use of Website and Services</h2>
+    <p>You agree to use NestTrim’s website and services only for lawful purposes in accordance with all applicable laws and these terms. You must not exploit our website to upload or distribute harmful, misleading, obscene, or unlawful materials or engage in any conduct that disrupts or harms the site or other users. You further agree not to interfere with security-related features or attempt unauthorized access to any part of the site or services. These conditions are designed to protect all users and maintain the integrity and availability of NestTrim’s offerings.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>3. Service Agreement and Acceptance</h2>
+    <p>All service agreements require a formal written contract or confirmation, which includes scope, timelines, costs, and other relevant stipulations. By requesting services and acknowledging the contract, you enter into a legally binding agreement with NestTrim. We reserve the right to refuse service to any individual or entity at our discretion. Please ensure all information you provide during service requests is truthful and complete, as this affects the quality and safety of the services rendered.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>4. Pricing and Payment Terms</h2>
+    <p>Our pricing is based on the scope of work and may vary depending on factors such as plant size, complexity, and seasonal conditions. Unless otherwise agreed, payment is due as specified in the contract or invoice. Invoices are payable within 15 days of receipt. Late payments may incur interest charges according to state law, and services may be suspended or terminated for non-payment. We utilize secure payment methods and ensure transparent invoicing to maintain trust and accountability.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>5. Cancellation and Refund Policy</h2>
+    <p>You may cancel scheduled services with at least 24 hours’ notice without penalty. Cancellations within less than 24 hours are subject to a cancellation fee equivalent to a portion of the scheduled service price to cover preparatory costs. All refund requests must be submitted in writing. Refunds are generally not provided after completion of services, unless agreed upon due to exceptional circumstances. We strive to provide quality services and recommend contacting us promptly for any concerns or scheduling changes.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>6. Liability Disclaimer</h2>
+    <p>While NestTrim employs best practices and takes utmost care in delivering services, we disclaim liability for any incidental, indirect, or consequential damages arising from service use. Landscaping and plant care involve natural variables outside our control; thus outcomes may vary. We do not guarantee specific results such as plant growth or survival beyond reasonable expectations. Users assume responsibility for risks related to property conditions, weather, and unforeseen events. Our liability for direct damages is limited to the amount paid for the specific service rendered.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>7. Intellectual Property</h2>
+    <p>All content on the NestTrim website including text, images, logos, graphics, and videos is owned or licensed by NestTrim and protected under international copyright laws. Users may view and download content for personal, non-commercial use only. Any reproduction, republication, modification, or distribution without express written permission is prohibited. We respect the intellectual property of others and ask our users to do the same. Any unauthorized use may result in legal action.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>8. Privacy</h2>
+    <p>Your use of NestTrim’s services and website is subject to our Privacy Policy, which details how we collect, use, and protect your personal data. By accepting these terms, you also agree to the practices outlined in the Privacy Policy. Ensuring your privacy and data security is paramount, and we comply with applicable data protection regulations.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>9. Changes to Terms</h2>
+    <p>NestTrim reserves the right to modify these Terms and Conditions at any time without prior notice. Changes will be posted on this page and will become effective immediately upon posting. It is your responsibility to regularly review the terms to stay informed. Continued use of our website or services after changes indicates your acceptance of the updated terms.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>10. Governing Law</h2>
+    <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of the State of New York, United States. Any disputes arising out of or relating to the use of the website or services shall be subject to the exclusive jurisdiction of the courts located within New York City. You agree to submit to the personal jurisdiction of such courts.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>11. User Responsibilities</h2>
+    <p>As a user of NestTrim services, you agree to provide accurate, complete, and current information as required by the service process. You are responsible for ensuring the property and plants are accessible and safe for service delivery. Any damages caused by unsafe conditions or interference with service provision are your responsibility. Cooperation and timely communication are essential for effective and efficient service. Please notify us immediately of any issues or changes that may affect service performance.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>12. Force Majeure</h2>
+    <p>NestTrim shall not be held liable for delays, defaults, or failures in performance caused by events beyond reasonable control, including but not limited to natural disasters, severe weather, pandemics, strikes, government actions, or other emergencies. Under such circumstances, we will endeavor to notify you promptly and reschedule or modify services as appropriate.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>13. Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless NestTrim, its affiliates, directors, officers, employees, and agents from any claims, liabilities, damages, losses, or expenses, including reasonable attorney’s fees, arising out of your use or misuse of our website or services, violation of these terms, or infringement of any rights of a third party. This obligation survives termination of your relationship with NestTrim.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>14. Termination</h2>
+    <p>NestTrim reserves the right to suspend or terminate access to our website or services at any time, without notice, for conduct that constitutes a violation of these Terms or is harmful to other users, our business, or legal compliance. Upon termination, all rights granted to you under these Terms will cease, and you must cease use of the services immediately.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>15. Feedback and Comments</h2>
+    <p>Any communication, feedback, or suggestions provided by you regarding NestTrim’s services or website will be considered non-confidential and non-proprietary. You agree that NestTrim may freely use, reproduce, disclose, and distribute such feedback for any purpose without acknowledgment or compensation to you.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>16. Availability of Services</h2>
+    <p>NestTrim strives to provide uninterrupted services; however, availability may be affected by seasonal demand, weather, staffing, and other factors. We reserve the right to schedule or reschedule services based on these factors with reasonable notice. We appreciate your understanding and will maintain transparent communication regarding scheduling and service delivery.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>17. Customer Satisfaction Guarantee</h2>
+    <p>Your satisfaction is important to us. If you are unhappy with any part of our services, please contact us promptly. We commit to addressing your concerns professionally and fairly, including arranging for reasonable corrective services or other remedies in accordance with this Terms and Conditions agreement. Our goal is to build lasting relationships based on trust and quality workmanship.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>18. Contact Information</h2>
+    <p>If you have any questions or concerns about these Terms and Conditions, please contact us at:</p>
+    <p><strong>NestTrim</strong><br />
+    50 Washington Square S<br />
+    New York, NY 10012, USA<br />
+    Email: <a href="mailto:contact@nesttrim.com">contact@nesttrim.com</a><br />
+    Phone: (555) 123-4567</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>19. Severability</h2>
+    <p>If any part of these Terms is deemed unlawful, void or unenforceable, that part shall be severed from the remainder, which will remain valid and enforceable to the fullest extent permitted by law.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>20. Entire Agreement</h2>
+    <p>These Terms and Conditions, along with our Privacy Policy and any other legal notices published by NestTrim, constitute the entire agreement between you and NestTrim concerning your use of our website and services, superseding all prior agreements between you and NestTrim.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>21. Payment Security</h2>
+    <p>NestTrim uses secure payment gateways to process transactions. We do not store your payment card information on our servers. All payment data is encrypted and securely handled to protect your financial information. Please report any unauthorized payment activity to us immediately.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>22. User-Generated Content</h2>
+    <p>If you submit any content such as testimonials or reviews on our website, you grant NestTrim a perpetual, irrevocable, royalty-free license to display, distribute, and promote such content. You represent that you have all necessary rights to grant this license and that the content does not infringe third-party rights or violate any laws.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>23. Dispute Resolution</h2>
+    <p>Any disputes arising under these Terms will be resolved primarily through friendly negotiation. If unresolved, disputes may be submitted to mediation or binding arbitration in New York City according to state laws. This procedure does not prevent either party from seeking injunctive relief in a court of competent jurisdiction when necessary to protect rights.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>24. Updates and Notifications</h2>
+    <p>We may send you important updates and notices regarding your use of our services and any changes to our Terms and Conditions. By continuing to engage with NestTrim, you consent to receive such communications electronically. You may opt out of marketing messages but not essential service notifications.</p>
+  </section>
+
+  <section class="terms-section">
+    <h2>25. Disclaimer of Warranties</h2>
+    <p>All services are provided "as is" without warranties of any kind, express or implied, including but not limited to merchantability, fitness for a particular purpose, or non-infringement. NestTrim does not guarantee specific results or outcomes and users assume all risks associated with our services.</p>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <p class="address" aria-label="Address">Address: 50 Washington Square S, New York, NY 10012, USA</p>
+  <p class="satisfaction" aria-label="Statement to increase constant customer satisfaction">Committed to increasing constant customer satisfaction with every crafted cut and healthier growth.</p>
+</footer>
+
+<script>
+  // Mobile menu toggle logic
+  const menuToggleBtn = document.querySelector('.menu-toggle');
+  const mobileNav = document.getElementById('mobileMenu');
+
+  menuToggleBtn.addEventListener('click', () => {
+    const isExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
+    menuToggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+    mobileNav.classList.toggle('show');
+  });
+</script>
+</body>
+</html>
+
