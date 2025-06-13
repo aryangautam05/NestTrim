@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NestTrim | Privacy Policy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<style>
+  /* Reset and base styles */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4b5741; /* dark muted greenish */
+    background-color: #f9f6f0; /* cream background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    color: #5a7c52; /* calm green */
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+  a:hover, a:focus {
+    color: #3b5830;
+    outline: none;
+  }
+  h1, h2, h3, h4 {
+    font-weight: 700;
+    margin-top: 0;
+    line-height: 1.2;
+    color: #2e3a1f;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+  }
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.6rem;
+  }
+  p {
+    margin-bottom: 1.2rem;
+    color: #5f6c45;
+  }
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    flex-grow: 1;
+  }
+
+  /* Header */
+  header {
+    background-color: #e5f1d9; /* calm light green */
+    padding: 0.75rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.07);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: #2e3a1f;
+    letter-spacing: 2px;
+  }
+  nav {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.8rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+  }
+  .nav-links a:hover, .nav-links a:focus {
+    background-color: #c5d3a7;
+    color: #2e3a1f;
+  }
+  /* Mobile menu toggle */
+  .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #2e3a1f;
+    font-size: 2rem;
+    display: block;
+  }
+
+  /* Responsive navigation */
+  @media (min-width: 768px) {
+    nav {
+      display: block;
+    }
+    .menu-toggle {
+      display: none;
+    }
+  }
+
+  /* Mobile menu overlay */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #e5f1d9cc;
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1200;
+    padding: 2rem;
+  }
+  .mobile-nav.show {
+    display: flex;
+  }
+  .mobile-nav a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2e3a1f;
+  }
+  .mobile-nav a:hover, .mobile-nav a:focus {
+    color: #3b5830;
+  }
+
+  /* Footer */
+  footer {
+    background: #c7d5a3;
+    color: #2f3b11;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    border-top: 2px solid #768c3b;
+  }
+  footer .address {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  footer .satisfaction {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: #304810;
+  }
+
+  /* Content styling for privacy policy */
+  .policy-section {
+    margin-bottom: 2.5rem;
+  }
+  .policy-section ul {
+    padding-left: 1.5rem;
+    color: #5f6c45;
+  }
+  .policy-section ul li {
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      padding: 3rem 2rem 5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding: 4rem 3rem 6rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner" role="banner">
+    <div class="logo" aria-label="NestTrim pruning and shaping specialists brand">NestTrim</div>
+    <nav aria-label="Primary navigation">
+      <button class="menu-toggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span class="material-icons">menu</span>
+      </button>
+      <div class="nav-links desktop-nav">
+       <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0"aria-current="page">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+      </div>
+    </nav>
+  </div>
+  <nav id="mobileMenu" class="mobile-nav" aria-label="Mobile Navigation">
+     <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0"aria-current="page">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+  </nav>
+</header>
+
+<main class="container" role="main" id="main-content" tabindex="-1">
+  <h1>Privacy Policy</h1>
+
+  <section class="policy-section">
+    <p>Your privacy is critically important to us at NestTrim. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services. Please read this policy carefully to understand our views and practices regarding your personal data.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Information We Collect</h2>
+    <p>We collect several types of information to provide and improve our services, including:</p>
+    <ul>
+      <li><strong>Personal Identification Information:</strong> such as your name, email address, phone number, and mailing address, collected when you contact us, subscribe, or request services.</li>
+      <li><strong>Usage Information:</strong> automatically collected data through cookies and tracking technologies about your interactions with our website, such as pages viewed, links clicked, IP address, and browser information.</li>
+      <li><strong>Payment Information:</strong> when you make purchases or payments for services, details necessary for processing, handled securely by trusted payment providers.</li>
+      <li><strong>Communications:</strong> information you provide when communicating with customer service or providing feedback.</li>
+    </ul>
+  </section>
+
+  <section class="policy-section">
+    <h2>How We Use Your Information</h2>
+    <p>We use the information we collect for purposes including but not limited to:</p>
+    <ul>
+      <li>Providing, operating, and maintaining our services and website;</li>
+      <li>Processing transactions and managing customer accounts;</li>
+      <li>Responding to inquiries, support requests, and personalized communications;</li>
+      <li>Sending newsletters, promotions, updates, and marketing communications with your consent;</li>
+      <li>Analyzing website usage to improve performance and user experience;</li>
+      <li>Detecting and preventing fraudulent activities and other illegal acts;</li>
+      <li>Complying with legal obligations and regulations.</li>
+    </ul>
+  </section>
+
+  <section class="policy-section">
+    <h2>Cookies and Tracking Technologies</h2>
+    <p>Our website uses cookies and similar tracking technologies to improve your browsing experience, personalize content, remember preferences, and analyze traffic. Cookies are small data files stored on your device by your browser.</p>
+    <p>You can adjust your browser settings to refuse cookies or alert you when cookies are sent. Note that disabling cookies may affect your ability to use some features of our website.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Your Rights and Choices</h2>
+    <p>Depending on your location and applicable laws, you may have rights regarding your personal data, including:</p>
+    <ul>
+      <li><strong>Access and Portability:</strong> You can request access to your personal data and request a copy for your use.</li>
+      <li><strong>Correction:</strong> You may request correction of inaccurate or incomplete information.</li>
+      <li><strong>Deletion:</strong> You can ask us to delete your personal data, subject to legal exceptions.</li>
+      <li><strong>Restriction of Processing:</strong> You may ask us to limit how we use your data.</li>
+      <li><strong>Objection:</strong> You can object to processing on certain grounds, including marketing.</li>
+      <li><strong>Withdraw Consent:</strong> If processing is based on consent, you can withdraw it at any time.</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us using the details below.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Data Security</h2>
+    <p>We take reasonable administrative, technical, and physical measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. Encryption, firewalls, secure servers, and access controls are in place. However, no internet transmission or electronic storage is completely secure; therefore, we cannot guarantee absolute protection.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Data Retention</h2>
+    <p>We retain your personal data only for as long as necessary to provide services, comply with legal obligations, resolve disputes, and enforce agreements. When no longer needed, we securely delete or anonymize your data.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Third-Party Services</h2>
+    <p>We may engage trusted third-party service providers to assist with website operations, payment processing, marketing, and analytics. These providers only process data as instructed and are required to keep your information confidential and secure.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>International Data Transfers</h2>
+    <p>If you are located outside the United States, please be aware that your personal data may be transferred to and processed in the U.S. or other countries where we or our service providers operate. We take appropriate safeguards to ensure your information remains protected according to applicable data protection laws.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Children’s Privacy</h2>
+    <p>Our website and services are not directed at individuals under the age of 13, and we do not knowingly collect personal data from children under this age. If you are a parent or guardian and believe your child has provided us personal information inadvertently, please contact us so we can delete the data promptly.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Links to Other Websites</h2>
+    <p>Our website may contain links to third-party sites for your convenience. We do not control these sites and are not responsible for their content, privacy policies, or practices. We encourage you to review the privacy policies of any websites you visit.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy periodically to reflect changes to our practices, technologies, legal requirements, or customer feedback. We will post updates on this page with the revision date. We encourage you to review this policy regularly to stay informed. Continued use of our website and services after changes indicates your acceptance.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>How to Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
+    <p><strong>NestTrim</strong><br/>
+    50 Washington Square S<br/>
+    New York, NY 10012, USA<br/>
+    Email: <a href="mailto:privacy@nesttrim.com">privacy@nesttrim.com</a><br/>
+    Phone: (555) 123-4567</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>California Privacy Rights (CCPA)</h2>
+    <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA), including the right to know what personal information is collected, request deletion, and opt-out of sale of personal data. To exercise these rights or for more information, please contact us using the details above.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>European Union Privacy Rights (GDPR)</h2>
+    <p>If you are located in the European Economic Area (EEA), the General Data Protection Regulation (GDPR) provides you with rights including data access, correction, erasure, restriction, portability, and objection. We process your data only with lawful bases such as consent or contract performance. For inquiries or to exercise your rights, please contact us.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Do Not Track Signals</h2>
+    <p>Our website does not currently respond to browser Do Not Track (DNT) signals. We continue to monitor developments to remain compliant with applicable requirements.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Data Portability</h2>
+    <p>Where applicable law grants you this right, you may request that we provide the personal data you have provided to us in a structured, commonly used, and machine-readable format. This facilitates your ability to transfer your data to another service provider if desired.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Automated Decision Making and Profiling</h2>
+    <p>We do not use your personal data for automated decision-making processes that produce legal or similarly significant effects on you.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Marketing Communications</h2>
+    <p>With your consent, we may send promotional emails or messages about our services, special offers, or events. You may unsubscribe from marketing communications at any time by following the unsubscribe link or contacting us directly. We respect your preferences and will not send unsolicited marketing messages.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Security Breach Procedures</h2>
+    <p>In the event of a security breach that affects your personal data, we adhere to applicable legal requirements to notify affected users and relevant authorities promptly. We take all reasonable steps to mitigate any potential impact and prevent further breaches.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Data Protection Officer</h2>
+    <p>We have appointed a Data Protection Officer (DPO) responsible for overseeing our data protection strategy and implementation. You can contact our DPO for any privacy-related concerns or questions at <a href="mailto:dpo@nesttrim.com">dpo@nesttrim.com</a>.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>Applicable Law</h2>
+    <p>This Privacy Policy and any dispute arising under or in connection with it shall be governed by and construed in accordance with the laws of the State of New York, USA. Any legal action or proceeding arising under this Privacy Policy shall be brought exclusively in the courts of the State of New York.</p>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <p class="address" aria-label="Address">Address: 50 Washington Square S, New York, NY 10012, USA</p>
+  <p class="satisfaction" aria-label="Statement to increase constant customer satisfaction">Committed to increasing constant customer satisfaction with every crafted cut and healthier growth.</p>
+</footer>
+
+<script>
+  // Mobile menu toggle logic
+  const menuToggleBtn = document.querySelector('.menu-toggle');
+  const mobileNav = document.getElementById('mobileMenu');
+
+  menuToggleBtn.addEventListener('click', () => {
+    const isExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
+    menuToggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+    mobileNav.classList.toggle('show');
+  });
+</script>
+</body>
+</html>
+
