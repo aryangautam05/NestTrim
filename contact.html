@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NestTrim | Contact Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<style>
+  /* Reset and base styles */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4b5741;
+    background-color: #f9f6f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    color: #5a7c52;
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+  a:hover, a:focus {
+    color: #3b5830;
+    outline: none;
+  }
+  h1, h2, h3, h4 {
+    font-weight: 700;
+    margin-top: 0;
+    line-height: 1.2;
+    color: #2e3a1f;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+  }
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.6rem;
+  }
+  p {
+    margin-bottom: 1.2rem;
+    color: #5f6c45;
+  }
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    flex-grow: 1;
+  }
+  /* Header */
+  header {
+    background-color: #e5f1d9;
+    padding: 0.75rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.07);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: #2e3a1f;
+    letter-spacing: 2px;
+  }
+  nav {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.8rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+  }
+  .nav-links a:hover, .nav-links a:focus {
+    background-color: #c5d3a7;
+    color: #2e3a1f;
+  }
+  /* Mobile menu toggle */
+  .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #2e3a1f;
+    font-size: 2rem;
+    display: block;
+  }
+  /* Responsive navigation */
+  @media (min-width: 768px) {
+    nav {
+      display: block;
+    }
+    .menu-toggle {
+      display: none;
+    }
+  }
+  /* Mobile menu overlay */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #e5f1d9cc;
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1200;
+    padding: 2rem;
+  }
+  .mobile-nav.show {
+    display: flex;
+  }
+  .mobile-nav a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2e3a1f;
+  }
+  .mobile-nav a:hover, .mobile-nav a:focus {
+    color: #3b5830;
+  }
+  /* Footer */
+  footer {
+    background: #c7d5a3;
+    color: #2f3b11;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    border-top: 2px solid #768c3b;
+  }
+  footer .address {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  footer .satisfaction {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: #304810;
+  }
+  /* Content styling */
+  .contact-section {
+    margin-bottom: 2rem;
+  }
+  form {
+    max-width: 600px;
+    background: #f4f7df;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(74, 109, 38, 0.15);
+  }
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #3b5830;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 0.9rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #a3bf7f;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+  }
+  input:focus, textarea:focus {
+    border-color: #4a6d26;
+    outline: none;
+  }
+  button.submit-btn {
+    background-color: #4a6d26;
+    color: #f1efd6;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(74, 109, 38, 0.6);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  button.submit-btn:hover, button.submit-btn:focus {
+    background-color: #3b581f;
+    box-shadow: 0 8px 14px rgba(59, 88, 31, 0.85);
+  }
+  /* Info boxes */
+  .info-box {
+    background: #e5f1d9;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 14px rgba(74, 109, 38, 0.12);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: #3b5830;
+  }
+  /* Responsive */
+  @media (max-width: 768px) {
+    form {
+      padding: 1.5rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .container {
+      padding: 3rem 2rem 5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding: 4rem 3rem 6rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner" role="banner">
+    <div class="logo" aria-label="NestTrim pruning and shaping specialists brand">NestTrim</div>
+    <nav aria-label="Primary navigation">
+      <button class="menu-toggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span class="material-icons">menu</span>
+      </button>
+      <div class="nav-links desktop-nav">
+     <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0"aria-current="page">Contact us</a>
+      </div>
+    </nav>
+  </div>
+  <nav id="mobileMenu" class="mobile-nav" aria-label="Mobile Navigation">
+  <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0"aria-current="page">Contact us</a>
+  </nav>
+</header>
+
+<main class="container" role="main" id="main-content" tabindex="-1">
+  <h1>Contact Us</h1>
+
+  <section class="contact-section">
+    <div class="info-box">
+      <h2>We're Here to Help</h2>
+      <p>At NestTrim, your communication is valued deeply, and we are committed to addressing your questions, requests, and feedback with utmost care and attention. Our team is ready to provide expert guidance on our pruning and shaping services, offer consultations tailored to your unique landscape, or assist with any concerns you might have. Gardening and landscaping are personal journeys, and we believe clear communication is the foundation of a lasting relationship.</p>
+      <p>Whether you are a homeowner looking to enhance your garden's beauty or a commercial client seeking professional arboricultural services, we encourage you to reach out. We strive to provide thorough, transparent responses to help you make well-informed decisions that ensure your outdoor space thrives sustainably and beautifully.</p>
+      <p>Your satisfaction journey begins with connecting with us, and we promise to be responsive, respectful, and proactive in all our interactions.</p>
+    </div>
+  </section>
+
+  <section class="contact-section" aria-label="Contact information">
+    <h2>Our Contact Information</h2>
+    <p>Getting in touch with us is simple and convenient through multiple channels tailored to your preferences. We welcome your phone calls, emails, or visits during our business hours, where a friendly and knowledgeable staff member will assist you.</p>
+    <p><strong>Address:</strong> 50 Washington Square S, New York, NY 10012, USA</p>
+    <p><strong>Phone:</strong> (555) 123-4567</p>
+    <p><strong>Email:</strong> <a href="mailto:contact@nesttrim.com">contact@nesttrim.com</a></p>
+    <p>Our dedicated customer service team is available Monday to Friday, 9:00 AM to 6:00 PM Eastern Time, excluding public holidays. For urgent matters or emergency service requests, please indicate the urgency when contacting to enable prioritized response. We are dedicated to ensuring your questions are answered promptly, and your needs are met with professionalism and care.</p>
+    <p>Additionally, follow NestTrim on social media platforms for the latest updates, gardening tips, and exclusive offers.</p>
+  </section>
+
+  <section class="contact-section" aria-label="Contact form section">
+    <h2>Send Us a Message</h2>
+    <form action="mailto:contact@nesttrim.com" method="post" enctype="text/plain" novalidate>
+      <label for="name">Full Name *</label>
+      <input type="text" name="name" id="name" placeholder="Your full name" required minlength="2" maxlength="100" aria-required="true" />
+      <label for="email">Email Address *</label>
+      <input type="email" name="email" id="email" placeholder="you@example.com" required aria-required="true" />
+      <label for="phone">Phone Number</label>
+      <input type="tel" name="phone" id="phone" placeholder="+1 555 123 4567" pattern="^\+?[0-9\s\-]{7,15}$" />
+      <label for="subject">Subject *</label>
+      <input type="text" name="subject" id="subject" placeholder="Inquiry topic" required maxlength="150" aria-required="true" />
+      <label for="message">Your Message *</label>
+      <textarea name="message" id="message" placeholder="Write your message here..." rows="8" required minlength="10" aria-required="true"></textarea>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <p><small>Please note: Submitting this form will open your default email client with your information prefilled for manual sending. Alternatively, contact us directly via phone or email for prompt assistance.</small></p>
+  </section>
+
+  <section class="contact-section">
+    <h2>Frequently Asked Questions</h2>
+    <p><strong>Q: How quickly will I receive a response to my inquiry?</strong></p>
+    <p>A: NestTrim strives to respond to all inquiries within 24 business hours during our normal office hours. We prioritize urgent requests and will contact you promptly to address your needs. Our goal is to ensure you feel valued and well-supported throughout your customer journey with us.</p>
+
+    <p><strong>Q: Can I schedule a consultation online?</strong></p>
+    <p>A: Currently, consultations can be scheduled by contacting us via phone or email. We are actively developing an online booking system to further enhance convenience and accessibility for our clients. Please check back soon for updates on this service.</p>
+
+    <p><strong>Q: What areas do you serve?</strong></p>
+    <p>A: NestTrim proudly serves residential and commercial clients across New York City and its metropolitan environs. We recommend contacting our team to confirm service availability in your specific location and receive tailored service recommendations that account for local climate and plant conditions.</p>
+
+    <p><strong>Q: How does NestTrim ensure quality service?</strong></p>
+    <p>A: Our certified arborists and gardening experts apply advanced horticultural techniques combined with the latest equipment to deliver superior pruning and shaping services. We undergo continuous training and maintain high standards through rigorous quality control processes. Additionally, we seek client feedback to improve and adapt our service offerings continuously.</p>
+
+    <p><strong>Q: Are estimates and consultations free?</strong></p>
+    <p>A: Yes, we provide complimentary estimates and consultations to understand your landscape needs thoroughly. During this process, we assess your garden’s unique characteristics, explain suitable treatments, and offer transparent pricing with no hidden fees or surprises.</p>
+
+    <p>For any other questions, concerns, or special requests, please contact our customer service team. We are here to make your gardening experience seamless and enjoyable!</p>
+  </section>
+
+  <section class="contact-section">
+    <h2>Our Commitment to You</h2>
+    <p>At NestTrim, we hold ourselves to the highest standards of customer service and environmental stewardship. We believe that excellent communication, personalized care, and professional expertise are the cornerstones of strong client relationships and successful landscaping projects. Our promise to you includes timely responses, respect for your property, and ongoing support before, during, and after service delivery.</p>
+    <p>Regardless of the size or complexity of your pruning needs, you can trust NestTrim to approach every project with dedication, precision, and passion for the natural beauty of your outdoor spaces. We look forward to partnering with you to create a vibrant, healthy, and visually stunning garden that you will cherish for years to come.</p>
+    <p>Thank you for considering NestTrim. We encourage you to reach out, share your vision, and experience the difference of expert care and friendly service.</p>
+  </section>
+
+  <section class="contact-section">
+    <h2>Additional Contact Options</h2>
+    <p>In addition to the standard contact methods, NestTrim offers several additional ways for you to connect with us:</p>
+    <ul>
+      <li><strong>Social Media:</strong> Follow us on popular social media platforms for garden inspiration, seasonal tips, and special promotions. Platforms include Facebook, Instagram, and Twitter.</li>
+      <li><strong>Newsletter Subscription:</strong> Subscribe to our monthly newsletter to receive exclusive gardening advice, discounts, and company updates delivered directly to your inbox.</li>
+      <li><strong>Live Chat:</strong> Coming soon! We are implementing a live chat feature to connect you immediately with a customer care representative during business hours for fast assistance.</li>
+      <li><strong>Workshops and Events:</strong> Join our educational workshops and community events to learn more about pruning techniques, sustainable garden practices, and seasonal landscaping.</li>
+      <li><strong>Referral Program:</strong> Refer friends and family to NestTrim and enjoy rewards and discounts on your future services as a token of our appreciation.</li>
+    </ul>
+    <p>We are dedicated to providing multiple avenues for support and connection to suit your preferences and ensure you feel valued at every touchpoint with NestTrim.</p>
+  </section>
+
+  <section class="contact-section">
+    <h2>Environmental and Sustainability Initiatives</h2>
+    <p>NestTrim takes environmental responsibility seriously. We strive to implement sustainable practices that protect and nurture local ecosystems. Our pruning and shaping techniques prioritize plant health, biodiversity, and minimal chemical use. We encourage clients to embrace eco-friendly landscaping choices, including native plantings and water conservation.</p>
+    <p>By working with NestTrim, you join us in promoting greener spaces that support wildlife and reduce environmental impact. We are committed to educating our clients on best practices for sustainable garden care aligned with current environmental standards and regulations.</p>
+  </section>
+
+  <section class="contact-section">
+    <h2>Technical Support and Accessibility</h2>
+    <p>We are committed to ensuring our website and services are accessible to all users, regardless of disability. If you encounter any issues accessing information or need accommodations, please notify us via the contact information provided. We will work diligently to improve accessibility and provide alternative formats for website content upon request.</p>
+    <p>Our technical support team is available to help resolve any difficulties related to service bookings, account access, or general navigation. We value feedback to continuously enhance the user experience and maintain compliance with accessibility guidelines.</p>
+  </section>
+
+  <section class="contact-section">
+    <h2>Feedback and Suggestions</h2>
+    <p>We welcome and value your feedback as an essential part of our growth and commitment to quality. Whether positive or constructive, your comments help us improve our services and better meet your expectations.</p>
+    <p>Please use the contact form, email, or phone to share your experiences or suggest improvements. We review all feedback carefully and may reach out to discuss your input further. NestTrim believes in fostering open, transparent communication to serve you better.</p>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <p class="address" aria-label="Address">Address: 50 Washington Square S, New York, NY 10012, USA</p>
+  <p class="satisfaction" aria-label="Statement to increase constant customer satisfaction">Committed to increasing constant customer satisfaction with every crafted cut and healthier growth.</p>
+</footer>
+
+<script>
+  // Mobile menu toggle logic
+  const menuToggleBtn = document.querySelector('.menu-toggle');
+  const mobileNav = document.getElementById('mobileMenu');
+
+  menuToggleBtn.addEventListener('click', () => {
+    const isExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
+    menuToggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+    mobileNav.classList.toggle('show');
+  });
+</script>
+</body>
+</html>
+
