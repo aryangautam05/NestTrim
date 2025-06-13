@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NestTrim | Cookies Policy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<style>
+  /* Reset and base styles */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4b5741;
+    background-color: #f9f6f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px; /* space for cookie consent bar */
+  }
+  a {
+    color: #5a7c52;
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+  a:hover, a:focus {
+    color: #3b5830;
+    outline: none;
+  }
+  h1, h2, h3, h4 {
+    font-weight: 700;
+    margin-top: 0;
+    line-height: 1.2;
+    color: #2e3a1f;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+  }
+  p {
+    margin-bottom: 1.25rem;
+    color: #5f6c45;
+  }
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 6rem;
+    flex-grow: 1;
+  }
+  /* Header */
+  header {
+    background-color: #e5f1d9;
+    padding: 0.75rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.07);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: #2e3a1f;
+    letter-spacing: 2px;
+  }
+  nav {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.8rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+  }
+  .nav-links a:hover, .nav-links a:focus {
+    background-color: #c5d3a7;
+    color: #2e3a1f;
+  }
+  /* Mobile menu toggle */
+  .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #2e3a1f;
+    font-size: 2rem;
+    display: block;
+  }
+  /* Responsive navigation */
+  @media (min-width: 768px) {
+    nav {
+      display: block;
+    }
+    .menu-toggle {
+      display: none;
+    }
+  }
+  /* Mobile menu overlay */
+  .mobile-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #e5f1d9cc;
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1200;
+    padding: 2rem;
+  }
+  .mobile-nav.show {
+    display: flex;
+  }
+  .mobile-nav a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2e3a1f;
+  }
+  .mobile-nav a:hover, .mobile-nav a:focus {
+    color: #3b5830;
+  }
+  /* Footer */
+  footer {
+    background: #c7d5a3;
+    color: #2f3b11;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    border-top: 2px solid #768c3b;
+  }
+  footer .address {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  footer .satisfaction {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: #304810;
+  }
+  /* Cookie Consent Dialog */
+  #cookie-consent {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #a7bf7e;
+    color: #2f3b11;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
+    z-index: 1500;
+    transition: transform 0.4s ease;
+  }
+  #cookie-consent.hide {
+    transform: translateY(110%);
+    pointer-events: none;
+  }
+  #cookie-consent .message {
+    flex: 1 1 60%;
+    min-width: 220px;
+  }
+  #cookie-consent .actions {
+    flex: 1 1 35%;
+    min-width: 200px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+  }
+  #cookie-consent button {
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+  #cookie-consent button.accept {
+    background-color: #4a6d26;
+    color: #f1efd6;
+  }
+  #cookie-consent button.accept:hover, #cookie-consent button.accept:focus {
+    background-color: #3b581f;
+    outline: none;
+  }
+  #cookie-consent button.decline {
+    background-color: #f4f7df;
+    color: #4a6d26;
+    border: 1.5px solid #4a6d26;
+  }
+  #cookie-consent button.decline:hover, #cookie-consent button.decline:focus {
+    background-color: #d6e8b8;
+    outline: none;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner" role="banner">
+    <div class="logo" aria-label="NestTrim pruning and shaping specialists brand">NestTrim</div>
+    <nav aria-label="Primary navigation">
+      <button class="menu-toggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span class="material-icons">menu</span>
+      </button>
+      <div class="nav-links desktop-nav">
+       <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0"aria-current="page">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+      </div>
+    </nav>
+  </div>
+  <nav id="mobileMenu" class="mobile-nav" aria-label="Mobile Navigation">
+     <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0"aria-current="page">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+  </nav>
+</header>
+
+<main class="container" role="main" id="main-content" tabindex="-1">
+  <h1>Cookies Policy</h1>
+  <p>This Cookies Policy explains how NestTrim uses cookies and similar tracking technologies when you visit our website. We are committed to transparency and empowering you with clear information about how your data is used.</p>
+  
+  <h2>What Are Cookies?</h2>
+  <p>Cookies are small text files stored on your device when you visit a website. They help the site remember your preferences, recognize you on return visits, and deliver a better experience.</p>
+  <p>Cookies can be "session cookies" that expire when you close your browser, or "persistent cookies" that remain for a set period or until you delete them.</p>
+  <p>We also use similar technologies like web beacons and tracking pixels to collect usage data to improve our services.</p>
+  <p>This policy informs you about the types of cookies we use, your choices, and how to manage cookies on your device.</p>
+
+  <h2>Types of Cookies We Use</h2>
+  <p>We use several categories of cookies, each serving a specific purpose:</p>
+  <ul>
+    <li><strong>Strictly Necessary Cookies:</strong> Essential for website operation and security. They enable core functionality like page navigation and secure areas.</li>
+    <li><strong>Performance Cookies:</strong> Collect anonymous data on website usage like page visits and load times to improve performance.</li>
+    <li><strong>Functional Cookies:</strong> Remember preferences such as language, location, or login settings to personalize your experience.</li>
+    <li><strong>Targeting or Advertising Cookies:</strong> Used to deliver relevant ads and marketing content based on your browsing activity.</li>
+  </ul>
+  
+  <h2>Detailed Contact-Related Points Regarding Cookies</h2>
+  
+  <!-- Now generating 40 detailed points each about 10 lines of text -->
+
+  <ol>
+    <li><strong>Purpose of Contact Information Collection via Cookies:</strong> We use cookies to help recognize returning visitors and personalize communications. By storing contact-related information temporarily, cookies assist in streamlining forms and customer interactions, reducing repeated data entry and enhancing your overall experience with NestTrim’s website. This ensures efficient support and a tailor-fit communication approach based on your browsing patterns and preferences.</li>
+    
+    <li><strong>Cookies and Form Autofill:</strong> Cookies facilitate saving your contact information such as name and email to ease form completion during future visits. This reduces friction and time spent filling out forms, allowing faster inquiries and service requests. Our cookies securely store this information for a limited period and do not share it with unauthorized parties.</li>
+    
+    <li><strong>Cookie Duration and Contact Data:</strong> Some cookies storing contact preferences and details expire after a session or persist for set periods. This duration is optimized to protect your privacy while balancing convenience for ongoing communications. You may clear or manage these cookies anytime.</li>
+    
+    <li><strong>Third-Party Cookies and Contact Information:</strong> We use trusted third-party tools (e.g., for chat support or analytics) that may collect contact-related data via cookies for better service delivery. These providers comply with applicable privacy laws and only use data for agreed-upon purposes.</li>
+    
+    <li><strong>Cookies Supporting Customer Support Contact:</strong> Cookies enable pop-up chat tools and callbacks by remembering when you previously contacted our support team. This aids in seamless communication and resolving your inquiries efficiently by recalling your prior interactions.</li>
+    
+    <li><strong>Data Protection in Cookies:</strong> NestTrim implements encryption and secure protocols for cookies that might contain contact-identifying elements. We do not store sensitive information (like passwords or financial data) in cookies and adhere to rigorous privacy standards to prevent misuse.</li>
+    
+    <li><strong>Cookie Consent Affecting Contact Options:</strong> Your cookie preferences influence how we present contact features, including personalized chat, location-based contact numbers, or email form availability. Accepting cookies improves our ability to offer these enhanced contact avenues tailored to your needs.</li>
+    
+    <li><strong>Managing Cookies to Control Contact Info Storage:</strong> You have full control over cookies via browser settings or cookie consent dialogs. Disabling certain cookies may result in losing autofill functionalities or personalized contact recommendations, but you remain fully able to contact us manually.</li>
+    
+    <li><strong>Cookies and Newsletter Subscription Management:</strong> Cookies streamline newsletter sign-up and management by remembering your subscription status and contact preferences. This avoids redundant subscription requests and ensures you receive relevant communications without interruption.</li>
+    
+    <li><strong>Cookies Enhancing Mobile Contact Experience:</strong> On mobile devices, cookies optimize contact form usability by storing input data during a session. This reduces repetitive typing and improves form stability even if you navigate away or experience connection issues.</li>
+    
+    <li><strong>Role of Cookies in Voice and Video Contact Services:</strong> For any upcoming voice or video support integrations, cookies will assist in remembering contact credentials or settings to provide smooth communication sessions without repeated logins or permission prompts.</li>
+    
+    <li><strong>Cookies Facilitating Location-Based Contact Info:</strong> We may use cookies to detect your geographic location to display localized contact numbers, office hours, and service availability. This ensures more accurate and relevant contact information tailored to your region.</li>
+    
+    <li><strong>Cookies and Contact Form Validation:</strong> Cookies help identify incomplete or erroneous contact form submissions, providing enhanced validation and user feedback. This ensures that the contact details you share are accurate and improve the efficacy of our communication.</li>
+    
+    <li><strong>Importance of Cookies in Multi-Channel Contact:</strong> NestTrim employs multi-channel contact options including email, phone, and chat. Cookies assist in coordinating your preferred channels and remembering your recent communications to provide a consistent and unified support experience.</li>
+    
+    <li><strong>Cookies Supporting Contact Analytics:</strong> We use aggregated cookie data to analyze how users interact with our contact pages and forms. This helps us to improve accessibility, reduce friction, and optimize contact point layouts to better serve our clientele.</li>
+    
+    <li><strong>Cookies and Accessibility Tools for Contact:</strong> Cookies help remember custom accessibility preferences such as font size or contrast on contact pages, ensuring users with disabilities have a comfortable and consistent experience when reaching out.</li>
+    
+    <li><strong>Cookie Security for Contact Data:</strong> NestTrim periodically audits cookies related to contact data to ensure security and compliance with data protection laws. Unauthorized or insecure cookie usage is prevented through strict policies and technological safeguards.</li>
+    
+    <li><strong>Cross-Device Contact Recognition Cookies:</strong> Cookies enable syncing your contact preferences and history across devices for a seamless experience whether you connect via phone, tablet, or desktop browser.</li>
+    
+    <li><strong>Cookies Supporting Contact Referral Tracking:</strong> We may use cookies to track referrals or campaigns that led to your contact with NestTrim, helping us improve marketing effectiveness and customize outreach to interested audiences.</li>
+    
+    <li><strong>Cookies and Contact Consent Management:</strong> Cookies store your consent choices for receiving marketing communications or newsletters, respecting your privacy preferences and enabling compliance with regulations like GDPR and CCPA.</li>
+    
+    <li><strong>Cookies for Scheduling and Appointment Contact:</strong> When you use our scheduling tools or appointment requests, cookies store relevant contact details to ease future bookings and reminders.</p>
+    <p>These cookies support automated confirmation emails and calendar integration to help you stay organized with your landscaping services.</p>
+    </li>
+    
+    <li><strong>Cookies and Emergency Contact Features:</strong> Some cookie functionality supports emergency contact or priority support by recognizing customers who require urgent service, enabling NestTrim to offer faster responses when critical conditions arise.</li>
+    
+    <li><strong>Impacts of Declining Cookies on Contact Services:</strong> If you decline cookies, some contact features may be limited or unavailable, such as auto-filled forms, saved preferences, or personalized support experiences. We strive to still provide full manual contact options without cookies.</li>
+    
+    <li><strong>Cookies and Contact History Storage:</strong> Our cookies can support temporary storage of your support chat transcripts or contact history within sessions for context continuity. This helps our representatives assist you efficiently and provides a better overall service.</li>
+    
+    <li><strong>How Cookies Enable Push Notifications for Contact Updates:</strong> Cookies underpin browser push notifications related to scheduled service reminders or important updates about your Landscape care. You can opt in or out of these notifications independently of other cookie settings.</li>
+    
+    <li><strong>Cookies and Contact Authorization:</strong> Certain cookies may be used as part of our authentication process for secure client portals or account management features, ensuring that your contact data remains confidential and protected.</li>
+    
+    <li><strong>Cookies and Contact Spam Protection:</strong> We use cookies as a part of spam prevention techniques for contact forms, detecting suspicious activity to protect our systems and your privacy from spam and abuse.</li>
+    
+    <li><strong>Cookies for Contact Feedback Collection:</strong> After interactions, cookies help remember your feedback preferences and ratings to enhance service quality while avoiding repetitive feedback requests until appropriate intervals.</li>
+    
+    <li><strong>Cookies Supporting Localization of Contact:</strong> Cookies allow NestTrim to adapt contact content, language, and forms dynamically based on geographic or regional preferences to provide relevant and efficient communication options.</li>
+    
+    <li><strong>Cookies and Contact Service Satisfaction:</strong> Analysis of cookie data gives insight into performance and customer satisfaction with our contact platforms, enabling continuous improvement and personalized responses.</li>
+    
+    <li><strong>Cookies and Contact Integration with CRM:</strong> NestTrim integrates cookies with Customer Relationship Management systems to streamline communication and ensure your contact preferences are respected throughout your journeys.</li>
+    
+    <li><strong>Cookies Enabling Scheduled Contact Callbacks:</strong> Cookies allow for managing your callback requests preferences discreetly and efficiently, simplifying communication and improving scheduling accuracy.</li>
+    
+    <li><strong>Cookies and User Generated Contact Content:</strong> If you submit content via contact forms, cookies may temporarily aid in storing inputted text and files to prevent data loss due to interruption or page reloads.</li>
+    
+    <li><strong>Cookies Supporting Technical Support Contact:</strong> For technical assistance related to our website or services, cookies help streamline your contact history and preferences to provide more personalized and faster troubleshooting.</li>
+    
+    <li><strong>Use of Consent Cookies for Contact Tracking:</strong> Consent cookies specifically track your permission for storing or sharing contact-related data, ensuring NestTrim complies fully with legal data privacy frameworks.</li>
+    
+    <li><strong>Cookies and Contact Consent Revocation:</strong> You can revoke cookie-based contact consents at any time through our cookie settings interface, thereby updating your communication preferences without hassle.</li>
+    
+    <li><strong>Cookies Enabling Multi-lingual Contact Support:</strong> Our cookies remember your language preference for contact pages and forms to provide you with an accessible and comfortable experience tailored to your linguistic needs.</li>
+    
+    <li><strong>Cookies and Context-aware Contact Assistance:</strong> By remembering your browsing context, cookies enable our support team to provide quicker, more informed assistance relevant to your inquiries and service interests.</li>
+    
+    <li><strong>Understanding Our Cookie Policy Through Contact:</strong> Whenever you contact NestTrim regarding our cookie practices, our team is prepared to provide clear, transparent explanations and support aligned with your needs and questions.</li>
+    
+    <li><strong>Cookies and Contact Form Accessibility:</strong> Cookies aid accessibility tools by remembering your contact form preferences such as label sizes, font emphasis, or input method compatibility to ensure all users can reach out comfortably.</li>
+    
+    <li><strong>Cookies Supporting Social Media Contact Features:</strong> For users connecting through social media platforms, cookies facilitate smooth contact form prefill and integration, offering a unified communication experience.</li>
+    
+    <li><strong>Security Measures for Contact Cookies:</strong> We implement modern encryption and secure flags on cookies handling contact data to safeguard your information from unauthorized interception or tampering.</li>
+    
+    <li><strong>Cookies and Contact Subscription Preferences:</strong> Cookies remember your subscription choices for newsletters or alerts, helping maintain your preferred communication flow without redundant subscription prompts.</li>
+    
+    <li><strong>Cookies and Contact Multi-factor Authentication:</strong> Where applicable, cookies support multi-factor authentication mechanisms for secure client account access enhancing the protection of your contact information.</li>
+    
+    <li><strong>Cookies Retention Policies for Contact Data:</strong> We retain cookie data related to contact information only for the time necessary to fulfill business or legal purposes, after which data is anonymized or securely deleted.</li>
+    
+    <li><strong>Cookies and Contact-Related External Integrations:</strong> NestTrim uses third-party solutions for advanced contact functions like chatbots or scheduling apps that deploy their own cookies subject to their privacy policies, providing enhanced service convenience.</li>
+  </ol>
+</main>
+
+<footer role="contentinfo">
+  <p class="address" aria-label="Address">Address: 50 Washington Square S, New York, NY 10012, USA</p>
+  <p class="satisfaction" aria-label="Statement to increase constant customer satisfaction">Committed to increasing constant customer satisfaction with every crafted cut and healthier growth.</p>
+  <p>Phone: (555) 123-4567</p>
+</footer>
+
+<div id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookies consent">
+  <div class="message">
+    We use cookies to enhance your browsing experience, provide personalized content, and analyze our traffic.
+    By clicking "Accept", you consent to our cookie policy.
+  </div>
+  <div class="actions">
+    <button class="accept" aria-label="Accept cookies">Accept</button>
+    <button class="decline" aria-label="Decline cookies">Decline</button>
+  </div>
+</div>
+
+<script>
+  const consentBar = document.getElementById('cookie-consent');
+  const acceptBtn = consentBar.querySelector('.accept');
+  const declineBtn = consentBar.querySelector('.decline');
+
+  function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+      const d = new Date();
+      d.setTime(d.getTime() + (days*24*60*60*1000));
+      expires = "; expires=" + d.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+  }
+  function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for(let i=0;i < ca.length;i++) {
+      let c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+  }
+
+  function hideConsentBar() {
+    consentBar.classList.add('hide');
+  }
+
+  // Check if user has already given or declined consent
+  function checkConsent() {
+    const consent = getCookie('nesttrim_cookie_consent');
+    if(consent === 'accepted' || consent === 'declined') {
+      hideConsentBar();
+    }
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    setCookie('nesttrim_cookie_consent', 'accepted', 365);
+    hideConsentBar();
+  });
+
+  declineBtn.addEventListener('click', () => {
+    setCookie('nesttrim_cookie_consent', 'declined', 365);
+    hideConsentBar();
+  });
+
+  checkConsent();
+</script>
+</body>
+</html>
+
